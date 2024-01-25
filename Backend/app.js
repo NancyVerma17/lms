@@ -6,7 +6,12 @@ dotenv.config({ path: "./config.env" });
 const app = express();
 connectDB();
 
-app.use(cors());
+app.use(cors({
+  origin:["https://lms-frontend-lovat.vercel.app"],
+  methods: ["POST",GET"],
+  credentials:true
+}
+  ));
 app.use(express.json({ extended: false, limit: "50mb" }));
 
 // api names---
